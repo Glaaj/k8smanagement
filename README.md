@@ -13,7 +13,7 @@ $KUBECONFIG=/Users/glenneggen/.kube/contexts/kubeconfig-cluster-1.yml:/Users/gle
 This will allow me to switch between the cluster-1 and cluster-2 contexts using ```kubectl config use-context cluster-1``` for example.
 
 
-# script
+# Script
 
 This solves my problem of allowing me to have multiple config files, but still fairly manual since every time I restart my terminal or if I have a new kubeconfig (or I have to remove an old one) I have to set that environment variable again. For that, I use a very simple bash script that scans the directory for new files and automatically adds them to the $KUBECONFIG environment variable:
 
