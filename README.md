@@ -7,7 +7,7 @@ by using colons.
 
 It should look like that when you have multiple config files:
 ```
-$KUBECONFIG=/Users/glenneggen/.kube/contexts/kubeconfig-cluster-1.yml:/Users/glenneggen/.kube/contexts/kubeconfig-cluster-2.yml
+$KUBECONFIG=/Users/USERNAMEHERE/.kube/contexts/kubeconfig-cluster-1.yml:/Users/USERNAMEHERE/.kube/contexts/kubeconfig-cluster-2.yml
 ```
 
 This will allow me to switch between the cluster-1 and cluster-2 contexts using ```kubectl config use-context cluster-1``` for example.
