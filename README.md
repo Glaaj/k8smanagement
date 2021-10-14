@@ -1,6 +1,9 @@
 # k8smanagement
+By default your kubernetes configuration lives in `~/.kube/config`. Additional clusters get added into this file resulting in clutter.
 
- much rather have multiple kubeconfig files, one for each cluster I’m managing and name those files with some information that tells me which cluster the file belongs to. This is easily achieved by using `kubeconfig --kubeconfig=/path/to/my/kubeconfig/file/cluster1`. But that is not a great solution for me since it’s time-consuming having to pass your configuration every time you want to check which pods are running on a cluster.
+I personnaly much rather have multiple kubeconfig files, one for each cluster I’m managing, and name those files with some information that tells me which cluster the file belongs to. This way the clusters are separated from one another which simplifies management.
+
+This is easily achieved by using `kubeconfig --kubeconfig=/path/to/my/kubeconfig/file/cluster1`. But that is not a great solution for me since it’s time-consuming having to pass your configuration every time you want to check which pods are running on a cluster.
 
 What I have done to simplify having multiple kubeconfig files was to use a cool capability of the `$KUBECONFIG` environment variable, which allows us to specify multiple kubeconfig files separated 
 by using colons. 
@@ -10,7 +13,7 @@ It should look like that when you have multiple config files:
 $KUBECONFIG=/Users/USERNAMEHERE/.kube/contexts/kubeconfig-cluster-1.yml:/Users/USERNAMEHERE/.kube/contexts/kubeconfig-cluster-2.yml
 ```
 
-This will allow me to switch between the cluster-1 and cluster-2 contexts using ```kubectl config use-context cluster-1``` for example.
+This will allow me to switch between the cluster-1 and cluster-2 contexts using ```kubectl config use-context cluster-1``` for example, this also integrates with `k9s` which I highy recommend: https://k9scli.io/.
 
 
 # Script
@@ -39,6 +42,8 @@ IFS="$OIFS"
 ```
 
 
-Then you can source that script by typing `source load-k8s-configs.sh` on your Mac terminal and that will load all your kubeconfig files as part of your `$KUBECONFIG` environment variable.
+Then you can source that script by typing `source load-k8s-configs.sh` on your Linux/Mac terminal and that will load all your kubeconfig files as part of your `$KUBECONFIG` environment variable.
 
-If you want to have this loaded every time you open the terminal, you can add `source /path/to/script/load-k8s-config.sh` to your bash_profile file inside your home directory.
+If you want to have this loaded every time you open the terminal, you can add `source /path/to/script/load-k8s-config.sh` to your bash/zsh/fish profile file inside your home directory.
+
+Enjoy!
