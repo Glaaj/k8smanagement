@@ -38,6 +38,6 @@ If you use the Fish shell, make sure to pick the correct variant from the reposi
 
 If you want to have this loaded every time you open a terminal, you can add the following to `~/.config/fish/fish/.config` inside the `interactive` section:
 
-`source /Users/glenneggen/Documents/gitrepos/k8smanagement/load-k8s-configs.sh`
+`source /Users/glenneggen/Documents/gitrepos/k8smanagement/load-k8s-configs-fish.sh`
 
 Enjoy!
